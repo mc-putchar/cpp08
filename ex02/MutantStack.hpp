@@ -6,14 +6,15 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 05:45:25 by mcutura           #+#    #+#             */
-/*   Updated: 2023/10/21 05:45:25 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/10 18:27:13 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 
-#include <algorithm>
-#include <stack>
+# include <algorithm>
+# include <stack>
 
 template<typename T>
 class MutantStack : public std::stack<T>
@@ -24,10 +25,12 @@ class MutantStack : public std::stack<T>
 		MutantStack const &operator=(MutantStack const &rhs);
 		~MutantStack();
 
-		typedef typename std::stack<T>::container_type::iterator iterator;
+		typedef typename std::stack<T>::container_type::iterator muterator;
 
-		iterator begin(void);
-		iterator end(void);
+		muterator begin(void);
+		muterator end(void);
 };
 
-#include "MutantStack.tpp"
+# include "MutantStack.tpp"
+
+#endif // MUTANTSTACK_HPP

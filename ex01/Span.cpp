@@ -6,15 +6,21 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 02:25:15 by mcutura           #+#    #+#             */
-/*   Updated: 2023/10/21 02:25:15 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/10 18:20:31 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span(unsigned int n) : n_(n)	{}
+Span::Span(unsigned int n) : n_(n)
+{
+	numbers_.reserve(n);
+}
 
-Span::Span(Span const &copy)	{*this = copy;}
+Span::Span(Span const &copy)
+{
+	*this = copy;
+}
 
 Span const &Span::operator=(Span const &rhs)
 {
@@ -47,7 +53,6 @@ void Span::addNumber(int number)
 	}
 }
 
-
 void Span::addRange(std::vector<int>::iterator begin,
 				std::vector<int>::iterator end)
 {
@@ -62,7 +67,8 @@ unsigned int Span::shortestSpan()
 {
 	if (numbers_.size() < 2)	throw NoSpanFound();
 	int res = std::abs(numbers_.at(1) - numbers_.at(0));
-	for (std::vector<int>::iterator i = numbers_.begin(); i + 1 != numbers_.end(); ++i) {
+	for (std::vector<int>::iterator i = numbers_.begin();
+	  i + 1 != numbers_.end(); ++i) {
 		for (std::vector<int>::iterator j = i + 1; j != numbers_.end(); ++j) {
 			if (!(res = std::min(std::abs(*j - *i), res)))	return 0;
 		}
@@ -73,7 +79,9 @@ unsigned int Span::shortestSpan()
 unsigned int Span::longestSpan()
 {
 	if (numbers_.size() < 2)	throw NoSpanFound();
-	std::vector<int>::iterator smallest = std::min_element(numbers_.begin(), numbers_.end());
-	std::vector<int>::iterator largest = std::max_element(numbers_.begin(), numbers_.end());
+	std::vector<int>::iterator smallest = \
+		std::min_element(numbers_.begin(), numbers_.end());
+	std::vector<int>::iterator largest = \
+		std::max_element(numbers_.begin(), numbers_.end());
 	return (static_cast<unsigned int>(*largest - *smallest));
 }

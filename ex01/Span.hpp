@@ -6,17 +6,17 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 02:20:12 by mcutura           #+#    #+#             */
-/*   Updated: 2023/10/21 02:20:12 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/10 18:21:03 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef SPAN_HPP
+# define SPAN_HPP
 
-#include <vector>
-#include <algorithm>
-#include <exception>
-
-#include <cstdlib>
+# include <algorithm>
+# include <cstdlib>
+# include <exception>
+# include <vector>
 
 class Span
 {
@@ -44,6 +44,6 @@ class Span
 	private:
 		unsigned int		n_;
 		std::vector<int>	numbers_;
-		
-		Span();
 };
+
+#endif // SPAN_HPP

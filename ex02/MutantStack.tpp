@@ -6,12 +6,14 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 05:59:14 by mcutura           #+#    #+#             */
-/*   Updated: 2023/10/21 05:59:14 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/10 18:28:11 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include <stack>
+#ifndef MUTANTSTACK_TPP
+# define MUTANTSTACK_TPP
+
+# include <stack>
 
 template<typename T>
 MutantStack<T>::MutantStack()	{}
@@ -41,3 +43,5 @@ typename std::stack<T>::container_type::iterator MutantStack<T>::end(void)
 {
 	return this->c.end();
 }
+
+#endif // MUTANTSTACK_TPP

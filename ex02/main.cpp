@@ -6,14 +6,14 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 05:55:04 by mcutura           #+#    #+#             */
-/*   Updated: 2023/10/21 05:55:04 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/10 18:27:45 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <algorithm>
-#include <stack>
+#include <iostream>
 #include <list>
+#include <stack>
 
 #include "MutantStack.hpp"
 
@@ -40,8 +40,8 @@ int main(void)
 	mstack.push(0);
 	mstack.push(42);
 
-	MutantStack<int>::iterator it = mstack.begin();
-	MutantStack<int>::iterator ite = mstack.end();
+	MutantStack<int>::muterator it = mstack.begin();
+	MutantStack<int>::muterator ite = mstack.end();
 	
 	++it;
 	--it;

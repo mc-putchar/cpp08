@@ -6,7 +6,7 @@
 /*   By: mcutura <mcutura@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 02:35:22 by mcutura           #+#    #+#             */
-/*   Updated: 2023/10/21 02:35:22 by mcutura          ###   ########.fr       */
+/*   Updated: 2024/05/10 18:19:28 by mcutura          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,24 @@ int main()
 		}
 	}
 
-	std::cout << "Longest span is: " << bigSpan.longestSpan() << std::endl;
-	std::cout << "Shortest span is: " << bigSpan.shortestSpan() << std::endl;
+	std::cout << "\tLongest span is: " << bigSpan.longestSpan() << std::endl;
+	std::cout << "\tShortest span is: " << bigSpan.shortestSpan() << std::endl;
 
+	Span copySpan(bigSpan);
+	std::cout << "Copied span and adding moar to fill it." << std::endl;
+	while (true)
+	{
+		try {
+			copySpan.addNumber(42);
+		} catch (std::exception &ex) {
+			std::cerr << ex.what() << std::endl;
+			break;
+		}
+	}
+	std::cout << "\tLongest span now is: " << copySpan.longestSpan() << std::endl;
+	std::cout << "\tShortest span now is: " << copySpan.shortestSpan() << std::endl;
+	std::cout << "OG didn't change tho" << std::endl;
+	std::cout << "\tLongest span is: " << bigSpan.longestSpan() << std::endl;
+	std::cout << "\tShortest span is: " << bigSpan.shortestSpan() << std::endl;
 	return 0;
 }
